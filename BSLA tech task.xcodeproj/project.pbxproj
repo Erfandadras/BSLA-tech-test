@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		756B6ED1BA4DDEC408F964CB /* Pods_BSLA_tech_task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8AA5948A1639366AD630C0B /* Pods_BSLA_tech_task.framework */; };
+		E43726D22CAAA1BA0098CB7C /* BSLA_tech_taskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726D12CAAA1BA0098CB7C /* BSLA_tech_taskApp.swift */; };
+		E43726D42CAAA1BA0098CB7C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726D32CAAA1BA0098CB7C /* ContentView.swift */; };
+		E43726D62CAAA1BB0098CB7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43726D52CAAA1BB0098CB7C /* Assets.xcassets */; };
+		E43726D92CAAA1BB0098CB7C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43726D82CAAA1BB0098CB7C /* Preview Assets.xcassets */; };
+		E43726E42CAAA2470098CB7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726E32CAAA2470098CB7C /* Constants.swift */; };
+		E43726E92CAAA32B0098CB7C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726E82CAAA32B0098CB7C /* NetworkService.swift */; };
+		E43726EB2CAAA4AC0098CB7C /* NetworkSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726EA2CAAA4AC0098CB7C /* NetworkSetup.swift */; };
+		E43726EE2CAAA4E00098CB7C /* Encodable+dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726ED2CAAA4E00098CB7C /* Encodable+dictionary.swift */; };
+		E43726F22CAAA5640098CB7C /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726F12CAAA5640098CB7C /* CustomError.swift */; };
+		E43726F52CAAA5B90098CB7C /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726F42CAAA5B90098CB7C /* DataParser.swift */; };
+		E43726F72CAAA5E60098CB7C /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726F62CAAA5E60098CB7C /* LogManager.swift */; };
+		E43726FD2CAAAB6B0098CB7C /* RecepieItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726FC2CAAAB6B0098CB7C /* RecepieItemView.swift */; };
+		E43726FF2CAAAB940098CB7C /* RecepieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43726FE2CAAAB940098CB7C /* RecepieListView.swift */; };
+		E43727012CAAAC3A0098CB7C /* UIRecepieItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727002CAAAC3A0098CB7C /* UIRecepieItemModel.swift */; };
+		E43727032CAAF0DB0098CB7C /* RecepieListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727022CAAF0DB0098CB7C /* RecepieListVM.swift */; };
+		E43727052CAAF13C0098CB7C /* RecepieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727042CAAF13C0098CB7C /* RecepieDataSource.swift */; };
+		E43727072CAAF19E0098CB7C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727062CAAF19E0098CB7C /* NetworkClient.swift */; };
+		E437270A2CAAF1DD0098CB7C /* RecepieListNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727092CAAF1DD0098CB7C /* RecepieListNetworkClient.swift */; };
+		E437270C2CAAF2420098CB7C /* RRecepieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437270B2CAAF2420098CB7C /* RRecepieModel.swift */; };
+		E437270E2CAAF3BF0098CB7C /* RecepieListJsonData.json in Resources */ = {isa = PBXBuildFile; fileRef = E437270D2CAAF3BF0098CB7C /* RecepieListJsonData.json */; };
+		E43727102CAAF4060098CB7C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437270F2CAAF4060098CB7C /* API.swift */; };
+		E43727122CAB08320098CB7C /* RecepieQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727112CAB08320098CB7C /* RecepieQueryModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ADA69B1B3C7C0C3D4BC7326B /* Pods-BSLA tech task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.release.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.release.xcconfig"; sourceTree = "<group>"; };
+		D8AA5948A1639366AD630C0B /* Pods_BSLA_tech_task.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BSLA_tech_task.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43726CE2CAAA1BA0098CB7C /* BSLA tech task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BSLA tech task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E43726D12CAAA1BA0098CB7C /* BSLA_tech_taskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLA_tech_taskApp.swift; sourceTree = "<group>"; };
+		E43726D32CAAA1BA0098CB7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E43726D52CAAA1BB0098CB7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E43726D82CAAA1BB0098CB7C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E43726E32CAAA2470098CB7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E43726E82CAAA32B0098CB7C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E43726EA2CAAA4AC0098CB7C /* NetworkSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSetup.swift; sourceTree = "<group>"; };
+		E43726ED2CAAA4E00098CB7C /* Encodable+dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+dictionary.swift"; sourceTree = "<group>"; };
+		E43726F12CAAA5640098CB7C /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		E43726F42CAAA5B90098CB7C /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		E43726F62CAAA5E60098CB7C /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		E43726FC2CAAAB6B0098CB7C /* RecepieItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieItemView.swift; sourceTree = "<group>"; };
+		E43726FE2CAAAB940098CB7C /* RecepieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieListView.swift; sourceTree = "<group>"; };
+		E43727002CAAAC3A0098CB7C /* UIRecepieItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRecepieItemModel.swift; sourceTree = "<group>"; };
+		E43727022CAAF0DB0098CB7C /* RecepieListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieListVM.swift; sourceTree = "<group>"; };
+		E43727042CAAF13C0098CB7C /* RecepieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieDataSource.swift; sourceTree = "<group>"; };
+		E43727062CAAF19E0098CB7C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		E43727092CAAF1DD0098CB7C /* RecepieListNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieListNetworkClient.swift; sourceTree = "<group>"; };
+		E437270B2CAAF2420098CB7C /* RRecepieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RRecepieModel.swift; sourceTree = "<group>"; };
+		E437270D2CAAF3BF0098CB7C /* RecepieListJsonData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecepieListJsonData.json; sourceTree = "<group>"; };
+		E437270F2CAAF4060098CB7C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E43727112CAB08320098CB7C /* RecepieQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieQueryModel.swift; sourceTree = "<group>"; };
+		F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.debug.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E43726CB2CAAA1BA0098CB7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				756B6ED1BA4DDEC408F964CB /* Pods_BSLA_tech_task.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55FEF5FBA29DA0D53F23411C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8AA5948A1639366AD630C0B /* Pods_BSLA_tech_task.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5837FE66FB7E4D24EC89084 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */,
+				ADA69B1B3C7C0C3D4BC7326B /* Pods-BSLA tech task.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E43726C52CAAA1BA0098CB7C = {
+			isa = PBXGroup;
+			children = (
+				E43726D02CAAA1BA0098CB7C /* BSLA tech task */,
+				E43726CF2CAAA1BA0098CB7C /* Products */,
+				B5837FE66FB7E4D24EC89084 /* Pods */,
+				55FEF5FBA29DA0D53F23411C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E43726CF2CAAA1BA0098CB7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E43726CE2CAAA1BA0098CB7C /* BSLA tech task.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E43726D02CAAA1BA0098CB7C /* BSLA tech task */ = {
+			isa = PBXGroup;
+			children = (
+				E43726EC2CAAA4C80098CB7C /* Utils */,
+				E43726E72CAAA3020098CB7C /* Services */,
+				E43726E62CAAA26D0098CB7C /* Scenes */,
+				E43726DF2CAAA1FD0098CB7C /* Core */,
+				E43726D72CAAA1BB0098CB7C /* Preview Content */,
+			);
+			path = "BSLA tech task";
+			sourceTree = "<group>";
+		};
+		E43726D72CAAA1BB0098CB7C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E43726D82CAAA1BB0098CB7C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E43726DF2CAAA1FD0098CB7C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E43726E52CAAA2620098CB7C /* Resources */,
+				E43726E12CAAA2210098CB7C /* Base */,
+				E43726E02CAAA2180098CB7C /* App */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E43726E02CAAA2180098CB7C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E43726D12CAAA1BA0098CB7C /* BSLA_tech_taskApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E43726E12CAAA2210098CB7C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E43726EF2CAAA5530098CB7C /* General */,
+				E43726E22CAAA2340098CB7C /* Constant */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E43726E22CAAA2340098CB7C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				E43726E32CAAA2470098CB7C /* Constants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		E43726E52CAAA2620098CB7C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E43726D52CAAA1BB0098CB7C /* Assets.xcassets */,
+				E437270D2CAAF3BF0098CB7C /* RecepieListJsonData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E43726E62CAAA26D0098CB7C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E43726F82CAAAB430098CB7C /* RecepieList */,
+				E43726D32CAAA1BA0098CB7C /* ContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E43726E72CAAA3020098CB7C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E43726F32CAAA59E0098CB7C /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E43726EC2CAAA4C80098CB7C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E43726ED2CAAA4E00098CB7C /* Encodable+dictionary.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E43726EF2CAAA5530098CB7C /* General */ = {
+			isa = PBXGroup;
+			children = (
+				E43726F02CAAA55A0098CB7C /* Error */,
+				E43726F62CAAA5E60098CB7C /* LogManager.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		E43726F02CAAA55A0098CB7C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E43726F12CAAA5640098CB7C /* CustomError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		E43726F32CAAA59E0098CB7C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E43726E82CAAA32B0098CB7C /* NetworkService.swift */,
+				E43726EA2CAAA4AC0098CB7C /* NetworkSetup.swift */,
+				E43726F42CAAA5B90098CB7C /* DataParser.swift */,
+				E43727062CAAF19E0098CB7C /* NetworkClient.swift */,
+				E437270F2CAAF4060098CB7C /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E43726F82CAAAB430098CB7C /* RecepieList */ = {
+			isa = PBXGroup;
+			children = (
+				E43727082CAAF1C90098CB7C /* Services */,
+				E43726FB2CAAAB610098CB7C /* View */,
+				E43726FA2CAAAB540098CB7C /* Model */,
+				E43726F92CAAAB4C0098CB7C /* ViewModel */,
+			);
+			path = RecepieList;
+			sourceTree = "<group>";
+		};
+		E43726F92CAAAB4C0098CB7C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E43727022CAAF0DB0098CB7C /* RecepieListVM.swift */,
+				E43727042CAAF13C0098CB7C /* RecepieDataSource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E43726FA2CAAAB540098CB7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E43727002CAAAC3A0098CB7C /* UIRecepieItemModel.swift */,
+				E437270B2CAAF2420098CB7C /* RRecepieModel.swift */,
+				E43727112CAB08320098CB7C /* RecepieQueryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E43726FB2CAAAB610098CB7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E43726FC2CAAAB6B0098CB7C /* RecepieItemView.swift */,
+				E43726FE2CAAAB940098CB7C /* RecepieListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E43727082CAAF1C90098CB7C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E43727092CAAF1DD0098CB7C /* RecepieListNetworkClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E43726CD2CAAA1BA0098CB7C /* BSLA tech task */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E43726DC2CAAA1BB0098CB7C /* Build configuration list for PBXNativeTarget "BSLA tech task" */;
+			buildPhases = (
+				88EC4AD082FC17FF56DB5689 /* [CP] Check Pods Manifest.lock */,
+				E43726CA2CAAA1BA0098CB7C /* Sources */,
+				E43726CB2CAAA1BA0098CB7C /* Frameworks */,
+				E43726CC2CAAA1BA0098CB7C /* Resources */,
+				4E4E26F420EBEB7CD5B9FF2B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BSLA tech task";
+			productName = "BSLA tech task";
+			productReference = E43726CE2CAAA1BA0098CB7C /* BSLA tech task.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E43726C62CAAA1BA0098CB7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					E43726CD2CAAA1BA0098CB7C = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = E43726C92CAAA1BA0098CB7C /* Build configuration list for PBXProject "BSLA tech task" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E43726C52CAAA1BA0098CB7C;
+			productRefGroup = E43726CF2CAAA1BA0098CB7C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E43726CD2CAAA1BA0098CB7C /* BSLA tech task */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E43726CC2CAAA1BA0098CB7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E437270E2CAAF3BF0098CB7C /* RecepieListJsonData.json in Resources */,
+				E43726D92CAAA1BB0098CB7C /* Preview Assets.xcassets in Resources */,
+				E43726D62CAAA1BB0098CB7C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E4E26F420EBEB7CD5B9FF2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88EC4AD082FC17FF56DB5689 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BSLA tech task-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E43726CA2CAAA1BA0098CB7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E43727052CAAF13C0098CB7C /* RecepieDataSource.swift in Sources */,
+				E43727032CAAF0DB0098CB7C /* RecepieListVM.swift in Sources */,
+				E43726F72CAAA5E60098CB7C /* LogManager.swift in Sources */,
+				E43727122CAB08320098CB7C /* RecepieQueryModel.swift in Sources */,
+				E43726F22CAAA5640098CB7C /* CustomError.swift in Sources */,
+				E43726D42CAAA1BA0098CB7C /* ContentView.swift in Sources */,
+				E43726F52CAAA5B90098CB7C /* DataParser.swift in Sources */,
+				E43726EE2CAAA4E00098CB7C /* Encodable+dictionary.swift in Sources */,
+				E43726FD2CAAAB6B0098CB7C /* RecepieItemView.swift in Sources */,
+				E43726EB2CAAA4AC0098CB7C /* NetworkSetup.swift in Sources */,
+				E43726D22CAAA1BA0098CB7C /* BSLA_tech_taskApp.swift in Sources */,
+				E43726E92CAAA32B0098CB7C /* NetworkService.swift in Sources */,
+				E437270A2CAAF1DD0098CB7C /* RecepieListNetworkClient.swift in Sources */,
+				E43727072CAAF19E0098CB7C /* NetworkClient.swift in Sources */,
+				E43726FF2CAAAB940098CB7C /* RecepieListView.swift in Sources */,
+				E437270C2CAAF2420098CB7C /* RRecepieModel.swift in Sources */,
+				E43727012CAAAC3A0098CB7C /* UIRecepieItemModel.swift in Sources */,
+				E43727102CAAF4060098CB7C /* API.swift in Sources */,
+				E43726E42CAAA2470098CB7C /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E43726DA2CAAA1BB0098CB7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E43726DB2CAAA1BB0098CB7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E43726DD2CAAA1BB0098CB7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BSLA tech task/Preview Content\"";
+				DEVELOPMENT_TEAM = A93LZ79VS9;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios.BSLA.Erfan.com.BSLA-tech-task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E43726DE2CAAA1BB0098CB7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADA69B1B3C7C0C3D4BC7326B /* Pods-BSLA tech task.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BSLA tech task/Preview Content\"";
+				DEVELOPMENT_TEAM = A93LZ79VS9;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios.BSLA.Erfan.com.BSLA-tech-task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E43726C92CAAA1BA0098CB7C /* Build configuration list for PBXProject "BSLA tech task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43726DA2CAAA1BB0098CB7C /* Debug */,
+				E43726DB2CAAA1BB0098CB7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E43726DC2CAAA1BB0098CB7C /* Build configuration list for PBXNativeTarget "BSLA tech task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E43726DD2CAAA1BB0098CB7C /* Debug */,
+				E43726DE2CAAA1BB0098CB7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E43726C62CAAA1BA0098CB7C /* Project object */;
+}
