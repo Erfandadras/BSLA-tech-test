@@ -30,6 +30,12 @@
 		E437270E2CAAF3BF0098CB7C /* RecepieListJsonData.json in Resources */ = {isa = PBXBuildFile; fileRef = E437270D2CAAF3BF0098CB7C /* RecepieListJsonData.json */; };
 		E43727102CAAF4060098CB7C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437270F2CAAF4060098CB7C /* API.swift */; };
 		E43727122CAB08320098CB7C /* RecepieQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727112CAB08320098CB7C /* RecepieQueryModel.swift */; };
+		E43727172CAC31590098CB7C /* RecepieDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E43727152CAC31590098CB7C /* RecepieDB.xcdatamodeld */; };
+		E437271F2CAC38810098CB7C /* RecepieEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437271D2CAC38810098CB7C /* RecepieEntity+CoreDataClass.swift */; };
+		E43727202CAC38810098CB7C /* RecepieEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437271E2CAC38810098CB7C /* RecepieEntity+CoreDataProperties.swift */; };
+		E43727222CAC39020098CB7C /* RecepieDBCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727212CAC39020098CB7C /* RecepieDBCoreDataStack.swift */; };
+		E43727242CAC3C090098CB7C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727232CAC3C090098CB7C /* DatabaseManager.swift */; };
+		E43727262CAC45A10098CB7C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43727252CAC45A10098CB7C /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,12 @@
 		E437270F2CAAF4060098CB7C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E43727112CAB08320098CB7C /* RecepieQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieQueryModel.swift; sourceTree = "<group>"; };
 		E43727132CABE6000098CB7C /* BSLA-tech-task-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BSLA-tech-task-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E43727162CAC31590098CB7C /* RecepieEntity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecepieEntity.xcdatamodel; sourceTree = "<group>"; };
+		E437271D2CAC38810098CB7C /* RecepieEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecepieEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E437271E2CAC38810098CB7C /* RecepieEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecepieEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E43727212CAC39020098CB7C /* RecepieDBCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepieDBCoreDataStack.swift; sourceTree = "<group>"; };
+		E43727232CAC3C090098CB7C /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		E43727252CAC45A10098CB7C /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.debug.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +198,7 @@
 		E43726E72CAAA3020098CB7C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E43727142CAC313A0098CB7C /* Databse */,
 				E43726F32CAAA59E0098CB7C /* Network */,
 			);
 			path = Services;
@@ -224,6 +237,7 @@
 				E43726F42CAAA5B90098CB7C /* DataParser.swift */,
 				E43727062CAAF19E0098CB7C /* NetworkClient.swift */,
 				E437270F2CAAF4060098CB7C /* API.swift */,
+				E43727252CAC45A10098CB7C /* Reachability.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -273,6 +287,18 @@
 				E43727092CAAF1DD0098CB7C /* RecepieListNetworkClient.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E43727142CAC313A0098CB7C /* Databse */ = {
+			isa = PBXGroup;
+			children = (
+				E437271D2CAC38810098CB7C /* RecepieEntity+CoreDataClass.swift */,
+				E437271E2CAC38810098CB7C /* RecepieEntity+CoreDataProperties.swift */,
+				E43727152CAC31590098CB7C /* RecepieDB.xcdatamodeld */,
+				E43727212CAC39020098CB7C /* RecepieDBCoreDataStack.swift */,
+				E43727232CAC3C090098CB7C /* DatabaseManager.swift */,
+			);
+			path = Databse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,17 +416,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E43727172CAC31590098CB7C /* RecepieDB.xcdatamodeld in Sources */,
 				E43727052CAAF13C0098CB7C /* RecepieDataSource.swift in Sources */,
 				E43727032CAAF0DB0098CB7C /* RecepieListVM.swift in Sources */,
 				E43726F72CAAA5E60098CB7C /* LogManager.swift in Sources */,
 				E43727122CAB08320098CB7C /* RecepieQueryModel.swift in Sources */,
+				E43727222CAC39020098CB7C /* RecepieDBCoreDataStack.swift in Sources */,
 				E43726F22CAAA5640098CB7C /* CustomError.swift in Sources */,
 				E43726D42CAAA1BA0098CB7C /* ContentView.swift in Sources */,
+				E43727242CAC3C090098CB7C /* DatabaseManager.swift in Sources */,
 				E43726F52CAAA5B90098CB7C /* DataParser.swift in Sources */,
 				E43726EE2CAAA4E00098CB7C /* Encodable+dictionary.swift in Sources */,
 				E43726FD2CAAAB6B0098CB7C /* RecepieItemView.swift in Sources */,
 				E43726EB2CAAA4AC0098CB7C /* NetworkSetup.swift in Sources */,
 				E43726D22CAAA1BA0098CB7C /* BSLA_tech_taskApp.swift in Sources */,
+				E437271F2CAC38810098CB7C /* RecepieEntity+CoreDataClass.swift in Sources */,
+				E43727202CAC38810098CB7C /* RecepieEntity+CoreDataProperties.swift in Sources */,
 				E43726E92CAAA32B0098CB7C /* NetworkService.swift in Sources */,
 				E437270A2CAAF1DD0098CB7C /* RecepieListNetworkClient.swift in Sources */,
 				E43727072CAAF19E0098CB7C /* NetworkClient.swift in Sources */,
@@ -408,6 +439,7 @@
 				E437270C2CAAF2420098CB7C /* RRecepieModel.swift in Sources */,
 				E43727012CAAAC3A0098CB7C /* UIRecepieItemModel.swift in Sources */,
 				E43727102CAAF4060098CB7C /* API.swift in Sources */,
+				E43727262CAC45A10098CB7C /* Reachability.swift in Sources */,
 				E43726E42CAAA2470098CB7C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +654,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E43727152CAC31590098CB7C /* RecepieDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E43727162CAC31590098CB7C /* RecepieEntity.xcdatamodel */,
+			);
+			currentVersion = E43727162CAC31590098CB7C /* RecepieEntity.xcdatamodel */;
+			path = RecepieDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E43726C62CAAA1BA0098CB7C /* Project object */;
 }
