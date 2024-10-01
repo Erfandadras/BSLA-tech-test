@@ -8,5 +8,10 @@
 import Foundation
 
 protocol NetworkClient {
-    func fetch<T: Codable>(_ dump : T.Type, callback: @escaping ((Result<T, any Error>) -> Void))
+    func fetch<T: Codable>(_ dump : T.Type, setup: NetworkSetup, callback: @escaping ((Result<T, any Error>) -> Void))
+}
+
+
+enum NetworkClientError: Error {
+    case typeError
 }

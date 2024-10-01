@@ -10,9 +10,11 @@ import SDWebImageSwiftUI
 
 struct RecepieItemView: View {
     let data: UIRecepieItemModel
+    var bookmarkAction: (Int) -> Void
+    
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 12) {
+            HStack(alignment: .top, spacing: 12) {
                 WebImage(url: data.imageURL) { image in
                     image.resizable()
                         .cornerRadius(8)
@@ -31,20 +33,36 @@ struct RecepieItemView: View {
                 .frame(maxWidth: 120)
                 .cornerRadius(12)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 14) {
                     Text(data.name)
-                        .font(.title)
+                        .font(.system(size: 16))
+                        .fontWeight(.semibold)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(data.description)
-                        .font(.title2)
+                        .font(.system(size: 14))
+                        .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
                 }// text VStacl
                 .frame(maxWidth: .infinity)
+                
+                Button {
+                    bookmarkAction(data.id)
+                } label: {
+                    Image(systemName: data.bookmark ? "bookmark.fill" : "bookmark")
+                }
+                .tint(.gray)
+
             }//Hstack
             .padding()
             .frame(maxWidth: .infinity)
             
         } // VStack
+    }
+}
+
+#Preview {
+    RecepieItemView(data: .init(id: 0, name: "name", description: "description")) { _ in
+        
     }
 }
