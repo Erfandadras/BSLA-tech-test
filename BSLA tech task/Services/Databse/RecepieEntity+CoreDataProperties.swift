@@ -16,7 +16,7 @@ extension RecepieEntity {
         return NSFetchRequest<RecepieEntity>(entityName: "RecepieEntity")
     }
 
-    @NSManaged public var id: Int16
+    @NSManaged public var id: Int32
     @NSManaged public var title: String?
     @NSManaged public var info: String?
     @NSManaged public var bookmarked: Bool

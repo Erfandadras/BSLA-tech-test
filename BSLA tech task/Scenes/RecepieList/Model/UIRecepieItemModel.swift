@@ -31,6 +31,17 @@ struct UIRecepieItemModel: Identifiable {
         self.imageURL = data.image
     }
     
+    
+    // MARK: - init with row local data
+    init(data: RecepieEntity) {
+        let title =  data.title ?? "unknown"
+        self.id = Int(data.id)
+        self.name = title
+        self.description = title + "\n" + title
+        self.imageURL = data.imageUrl
+        self.bookmark = data.bookmarked
+    }
+    
     // MARK: - mutating
     mutating func toggleBookmark() {
         bookmark.toggle()

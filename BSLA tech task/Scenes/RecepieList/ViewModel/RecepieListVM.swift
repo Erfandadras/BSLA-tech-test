@@ -71,9 +71,16 @@ extension RecepieListVM {
         }
     }
     
-    func bindData() {
-        $error.sink { error in
-            Logger.log(.error, error)
-        }.store(in: &bag)
+    func bookmark(recepie id: Int) {
+        dataSource.bookmark(recepie: id) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let data):
+                self.data = data
+            case .failure(let error):
+                //TODO: - handle error
+                Logger.log(.error, error.localizedDescription)
+            }
+        }
     }
 }

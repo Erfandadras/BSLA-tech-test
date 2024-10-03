@@ -16,12 +16,12 @@ final class RecepieDBManager {
 // MARK: - logics
 extension RecepieDBManager {
     static func storeRecepies(data recepies: [RRecepieItemModel]) {
-        for recepy in recepies {
+        for recipe in recepies {
             let item = RecepieEntity(context: context)
-            item.id = Int16(recepy.id)
-            item.title = recepy.title
-            item.imageUrl = recepy.image
-            item.info = recepy.title
+            item.id = Int32(recipe.id)
+            item.title = recipe.title
+            item.imageUrl = recipe.image
+            item.info = recipe.title
         }
         RecepieDBCoreDataStack.shared.saveContext()
     }
@@ -36,16 +36,19 @@ extension RecepieDBManager {
         }
     }
     
-    static func bookmark(id: Int) {
+    static func bookmark(id: Int) -> RecepieEntity? {
         if let item = fetchItem(with: id) {
             item.bookmarked.toggle()
             RecepieDBCoreDataStack.shared.saveContext()
+            return item
+        } else {
+            return nil
         }
     }
     
     static func fetchItem(with id: Int) -> RecepieEntity? {
         let fetchRequest: NSFetchRequest<RecepieEntity> = RecepieEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        fetchRequest.predicate = NSPredicate(format: "id == \(id)")
         do {
             return try context.fetch(fetchRequest).first
         } catch {
@@ -62,6 +65,13 @@ extension RecepieDBManager {
         } catch {
             print("Error fetching item: \(error.localizedDescription)")
             return []
+        }
+    }
+    
+    static func clearDB() {
+        for item in fetchRecepies() {
+            context.delete(item)
+            RecepieDBCoreDataStack.shared.saveContext()
         }
     }
 }

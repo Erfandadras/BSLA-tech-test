@@ -15,35 +15,49 @@ struct RecepieListView: View {
     init() {
         let client = RecepieListNetworkClient()
         let mockClient = MockRecepieListNetworkClient()
-        let dataSource = RecepieDataSource(client: mockClient)
+        let offlineDataSource = OfflineRecepiesDataSource()
+        let dataSource = RecepieDataSource(client: mockClient,
+                                           offlineDataSource: offlineDataSource)
         _viewModel = .init(wrappedValue: RecepieListVM(dataSource: dataSource))
     }
     
     // MARK: - view
     var body: some View {
-        VStack {
-            Spacer()
-            SwiftUICustomSearchBar(searchText: $search, searching: $viewModel.searching,searchAction: { keyword in
-                viewModel.search(with: keyword)
-            } , filterAction: { keyword in
-                viewModel.filterData(with: keyword)
-            })
-            .padding(.horizontal, 24)
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.data) { item in
-                        RecepieItemView(data: item) { id in
-                            
+        NavigationView {
+            VStack {
+                Spacer()
+                HStack{
+                    SwiftUICustomSearchBar(searchText: $search, searching: $viewModel.searching,searchAction: { keyword in
+                        viewModel.search(with: keyword)
+                    } , filterAction: { keyword in
+                        viewModel.filterData(with: keyword)
+                    })
+                }
+                .padding(.horizontal, 24)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.data) { item in
+                            NavigationLink {
+                                NavigationLazyView(RecipeDetailView(id: item.id))
+                                    
+                            } label: {
+                                RecepieItemView(data: item) { id in
+                                    withAnimation {
+                                        viewModel.bookmark(recepie: id)
+                                    }
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
+                }// scrollView
+                .refreshable {
+                    viewModel.refresh()
                 }
-            }// scrollView
-            .refreshable {
-                viewModel.refresh()
+            }// Vstack
+            .onAppear {
+                self.viewModel.getData()
             }
-        }// Vstack
-        .onAppear {
-            self.viewModel.getData()
         }
     }
 }

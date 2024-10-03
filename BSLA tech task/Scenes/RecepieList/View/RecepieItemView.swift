@@ -61,8 +61,8 @@ struct RecepieItemView: View {
     }
 }
 
-#Preview {
-    RecepieItemView(data: .init(id: 0, name: "name", description: "description")) { _ in
-        
-    }
-}
+//#Preview {
+//    RecepieItemView(data: .init(id: 0, name: "name", description: "description")) { _ in
+//        
+//    }
+//}

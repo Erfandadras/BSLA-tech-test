@@ -13,5 +13,6 @@ struct API {
     
     struct Routes {
         static let recepieRoutes = API.baseURL + "complexSearch/"
+        static let recepieDetailFormat = API.baseURL + "%d" + "/information"
     }
 }

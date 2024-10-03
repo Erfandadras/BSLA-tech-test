@@ -24,14 +24,18 @@ class NetworkReachability {
         return monitor.currentPath.isExpensive
     }
     
+    // MARK: - init
     private init() {
         startMonitoring()
     }
     
+    // MARK: - deinit
     deinit {
         stopMonitoring()
     }
     
+    
+    // MARK: - logic
     func startMonitoring() {
         guard !isMonitoring else { return }
         monitor.start(queue: queue)
