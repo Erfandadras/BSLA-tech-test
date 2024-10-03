@@ -15,15 +15,17 @@ struct UIRecipeDetailModel {
     let serving: String
     let image: URL?
     let detail: String
+    let ingredients: [UIRecipeIngredientModel]
     
     // MARK: - init
-    init(id: Int, name: String, beReadyIn: String, serving: String, image: URL?, detail: String) {
+    init(id: Int, name: String, beReadyIn: String, serving: String, image: URL?, detail: String, ingredients: [UIRecipeIngredientModel] = []) {
         self.id = id
         self.name = name
         self.beReadyIn = beReadyIn
         self.serving = serving
         self.image = image
         self.detail = detail
+        self.ingredients = ingredients
     }
     
     // MARK: - init from row data
@@ -34,6 +36,7 @@ struct UIRecipeDetailModel {
         self.serving = "\(Int(data.servings)) servings"
         self.image = data.image
         self.detail = data.detail
+        self.ingredients = data.ingredient.map({UIRecipeIngredientModel(data: $0)})
     }
 }
 

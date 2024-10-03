@@ -40,7 +40,7 @@ final class MockRecepieListNetworkClient: NetworkClient {
         if let url = Bundle.main.url(forResource: "RecepieListJsonData", withExtension: "json"),
            let jsonFile = try? Data(contentsOf: url),
            let jsonObject = try? JSONSerialization.jsonObject(with: jsonFile, options: []) {
-            parseData(data: jsonObject) { result in
+            parseData(data: jsonObject, query: (setup.params as? RecepieQueryModel)?.query) { result in
                 switch result {
                 case .success(let success):
                     if let data = success as? T {
@@ -58,11 +58,21 @@ final class MockRecepieListNetworkClient: NetworkClient {
     
     
     private func parseData(data: Any,
-                   callback: @escaping ((Result<RRecepieDataModel, Error>) -> Void)) {
+                           query: String?,
+                           callback: @escaping ((Result<RRecepieDataModel, Error>) -> Void)) {
         let decoder = JSONDecoder()
         if let jsonData = try? JSONSerialization.data(withJSONObject: data),
            let response = try? decoder.decode(RRecepieDataModel.self, from: jsonData) {
-            callback(.success(response))
+            if let query = query {
+                let filterData = response.data.filter({$0.title.lowercased().contains(query)})
+                if filterData.isEmpty {
+                    callback(.failure(CustomError(description: "not found")))
+                } else {
+                    callback(.success(.init(data: filterData)))
+                }
+            } else {
+                callback(.success(response))
+            }
         } else {
             callback(.failure(CustomError(description: "Failed to fetch data")))            
         }

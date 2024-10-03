@@ -23,12 +23,6 @@ struct RecipeDetailView: View {
     var body: some View {
         if let data = viewModel.recepie {
             ScrollView {
-                HStack {
-                    Spacer()
-                    Text(data.name)
-                    Spacer()
-                }
-                
                 WebImage(url: data.image) { image in
                     image.resizable()
                 } placeholder: {
@@ -64,18 +58,20 @@ struct RecipeDetailView: View {
                 }.padding(.horizontal)
                 
                 LazyVStack {
-                    ForEach(0...10, id: \.hashValue) { i in
+                    ForEach(viewModel.recepie?.ingredients ?? []) { ingredient in
                         HStack{
-                            Text("index \(i)")
+                            Text(ingredient.name)
                             Spacer()
                         }
                     }
                 }
-                .padding()
+                .padding(.horizontal)
+                .padding(.bottom)
             }// ScrollView
             .refreshable {
                 viewModel.loadData()
             }
+            .navigationTitle(data.name)
         } else {
             ProgressView()
                 .progressViewStyle(.circular)

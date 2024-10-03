@@ -8,8 +8,17 @@
 import Foundation
 import Network
 
+protocol NetworkReachabilityRepo {
+    var isReachableOnCellular: Bool {get}
+    
+    func changeRechability(reachable: Bool)
+}
 
-class NetworkReachability {
+extension NetworkReachabilityRepo {
+    func changeRechability(reachable: Bool) {}
+}
+
+class NetworkReachability: NetworkReachabilityRepo {
     static let shared = NetworkReachability()
     
     private let monitor = NWPathMonitor()

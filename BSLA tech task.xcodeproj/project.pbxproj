@@ -50,7 +50,18 @@
 		E4960A072CAE966E006183A4 /* BookmarksRecipeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A062CAE966E006183A4 /* BookmarksRecipeVM.swift */; };
 		E4960A092CAE9845006183A4 /* BookmarksRecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A082CAE9845006183A4 /* BookmarksRecipeDataSource.swift */; };
 		E4960A0B2CAE9BF3006183A4 /* BookmarksRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */; };
+		E4960A162CAEBDA5006183A4 /* BSLA_tech_taskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A152CAEBDA5006183A4 /* BSLA_tech_taskTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4960A172CAEBDA5006183A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E43726C62CAAA1BA0098CB7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E43726CD2CAAA1BA0098CB7C;
+			remoteInfo = "BSLA tech task";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		ADA69B1B3C7C0C3D4BC7326B /* Pods-BSLA tech task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.release.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +110,8 @@
 		E4960A062CAE966E006183A4 /* BookmarksRecipeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeVM.swift; sourceTree = "<group>"; };
 		E4960A082CAE9845006183A4 /* BookmarksRecipeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeDataSource.swift; sourceTree = "<group>"; };
 		E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeView.swift; sourceTree = "<group>"; };
+		E4960A132CAEBDA5006183A4 /* BSLA tech taskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BSLA tech taskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4960A152CAEBDA5006183A4 /* BSLA_tech_taskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLA_tech_taskTests.swift; sourceTree = "<group>"; };
 		F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.debug.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +121,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				756B6ED1BA4DDEC408F964CB /* Pods_BSLA_tech_task.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4960A102CAEBDA5006183A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E43726D02CAAA1BA0098CB7C /* BSLA tech task */,
+				E4960A142CAEBDA5006183A4 /* BSLA tech taskTests */,
 				E43726CF2CAAA1BA0098CB7C /* Products */,
 				B5837FE66FB7E4D24EC89084 /* Pods */,
 				55FEF5FBA29DA0D53F23411C /* Frameworks */,
@@ -145,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				E43726CE2CAAA1BA0098CB7C /* BSLA tech task.app */,
+				E4960A132CAEBDA5006183A4 /* BSLA tech taskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,6 +437,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E4960A142CAEBDA5006183A4 /* BSLA tech taskTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4960A1C2CAEBDD5006183A4 /* MockData */,
+				E4960A152CAEBDA5006183A4 /* BSLA_tech_taskTests.swift */,
+			);
+			path = "BSLA tech taskTests";
+			sourceTree = "<group>";
+		};
+		E4960A1C2CAEBDD5006183A4 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +475,24 @@
 			productReference = E43726CE2CAAA1BA0098CB7C /* BSLA tech task.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E4960A122CAEBDA5006183A4 /* BSLA tech taskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4960A192CAEBDA5006183A4 /* Build configuration list for PBXNativeTarget "BSLA tech taskTests" */;
+			buildPhases = (
+				E4960A0F2CAEBDA5006183A4 /* Sources */,
+				E4960A102CAEBDA5006183A4 /* Frameworks */,
+				E4960A112CAEBDA5006183A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4960A182CAEBDA5006183A4 /* PBXTargetDependency */,
+			);
+			name = "BSLA tech taskTests";
+			productName = "BSLA tech taskTests";
+			productReference = E4960A132CAEBDA5006183A4 /* BSLA tech taskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -449,6 +505,10 @@
 				TargetAttributes = {
 					E43726CD2CAAA1BA0098CB7C = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					E4960A122CAEBDA5006183A4 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = E43726CD2CAAA1BA0098CB7C;
 					};
 				};
 			};
@@ -466,6 +526,7 @@
 			projectRoot = "";
 			targets = (
 				E43726CD2CAAA1BA0098CB7C /* BSLA tech task */,
+				E4960A122CAEBDA5006183A4 /* BSLA tech taskTests */,
 			);
 		};
 /* End PBXProject section */
@@ -479,6 +540,13 @@
 				E43726D92CAAA1BB0098CB7C /* Preview Assets.xcassets in Resources */,
 				E43726D62CAAA1BB0098CB7C /* Assets.xcassets in Resources */,
 				E49609E82CAD6D85006183A4 /* SingleRecepieData.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4960A112CAEBDA5006183A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +640,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4960A0F2CAEBDA5006183A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4960A162CAEBDA5006183A4 /* BSLA_tech_taskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4960A182CAEBDA5006183A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E43726CD2CAAA1BA0098CB7C /* BSLA tech task */;
+			targetProxy = E4960A172CAEBDA5006183A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E43726DA2CAAA1BB0098CB7C /* Debug */ = {
@@ -760,6 +844,42 @@
 			};
 			name = Release;
 		};
+		E4960A1A2CAEBDA5006183A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93LZ79VS9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios.BSLA.Erfan.com.BSLA-tech-taskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BSLA tech task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BSLA tech task";
+			};
+			name = Debug;
+		};
+		E4960A1B2CAEBDA5006183A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93LZ79VS9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ios.BSLA.Erfan.com.BSLA-tech-taskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BSLA tech task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BSLA tech task";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -777,6 +897,15 @@
 			buildConfigurations = (
 				E43726DD2CAAA1BB0098CB7C /* Debug */,
 				E43726DE2CAAA1BB0098CB7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4960A192CAEBDA5006183A4 /* Build configuration list for PBXNativeTarget "BSLA tech taskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4960A1A2CAEBDA5006183A4 /* Debug */,
+				E4960A1B2CAEBDA5006183A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

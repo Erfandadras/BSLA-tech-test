@@ -31,14 +31,17 @@ final class RecepieDataSource {
     private var rowData: RRecepieDataModel?
     private var uiData: [UIRecepieItemModel] = []
     private let offlineDataSource: OfflineRecepiesDataSourceRepo
-    private let reachability = NetworkReachability.shared
+    private let reachability: NetworkReachabilityRepo
     weak var delegate: RecepieDataSourceDelegate?
     
     // MARK: - init
     init(client: NetworkClient,
-         offlineDataSource: OfflineRecepiesDataSourceRepo) {
+         offlineDataSource: OfflineRecepiesDataSourceRepo,
+         reachability: NetworkReachabilityRepo = NetworkReachability.shared) {
         self.client = client
         self.offlineDataSource = offlineDataSource
+        self.reachability = reachability
+        
         offlineDataSource.setOfflineDataSourceOutput(output: .init(action: { [weak self] action in
             guard let self = self else { return }
             switch action {
@@ -80,6 +83,7 @@ extension RecepieDataSource: RecepieDataSourceRepo {
             let data = offlineDataSource.fetchData()
             self.uiData = data
             self.delegate?.uiDataUpdated(data: data)
+            callback()
         }
     }
     
@@ -102,12 +106,14 @@ extension RecepieDataSource: RecepieDataSourceRepo {
                     self.delegate?.uiDataUpdated(data: success)
                     callback(true)
                 case .failure(let error):
+                    Logger.log(.error, error.localizedDescription)
                     callback(false)
                     self.delegate?.handleDataSourceError(error: error)
                 }
             }
         } else {
             self.delegate?.uiDataUpdated(data: uiData)
+            callback(true)
         }
     }
     

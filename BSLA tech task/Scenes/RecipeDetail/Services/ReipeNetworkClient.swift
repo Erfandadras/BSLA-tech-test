@@ -36,7 +36,8 @@ final class ReipeNetworkClient: NetworkClient, DataParser {
 
 // MARK: - mock
 final class MockReipeNetworkClient: NetworkClient {
-    func fetch<T>(_ dump: T.Type, setup: NetworkSetup, callback: @escaping ((Result<T, any Error>) -> Void)) where T : Decodable, T : Encodable {
+    func fetch<T>(_ dump: T.Type, setup: NetworkSetup,
+                  callback: @escaping ((Result<T, any Error>) -> Void)) where T : Decodable, T : Encodable {
         if let url = Bundle.main.url(forResource: "SingleRecepieData", withExtension: "json"),
            let jsonFile = try? Data(contentsOf: url),
            let jsonObject = try? JSONSerialization.jsonObject(with: jsonFile, options: []) {
