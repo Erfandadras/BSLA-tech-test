@@ -8,7 +8,7 @@ instalation
 
 open BSLA tech task.xcworkspace
 
-base directory containst 
+base directory
 
   .  
   |  
