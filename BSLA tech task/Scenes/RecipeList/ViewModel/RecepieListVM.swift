@@ -30,16 +30,9 @@ final class RecepieListVM: ObservableObject {
 extension RecepieListVM {
     func getData() {
         loading = true
-        dataSource.loadAllData { [weak self] result in
+        dataSource.loadAllData { [weak self] in
             guard let self = self else { return }
             self.loading = false
-            switch result {
-            case .success(let data):
-                self.data = data
-            case .failure(let error):
-                //TODO: - handle error
-                Logger.log(.error, error.localizedDescription)
-            }
         }
     }
     
@@ -58,29 +51,24 @@ extension RecepieListVM {
     
     func search(with keyword: String) {
         searching = true
-        dataSource.search(with: keyword) { [weak self] result in
+        dataSource.search(with: keyword) { [weak self] _ in
             guard let self = self else { return }
             self.searching = false
-            switch result {
-            case .success(let data):
-                self.data = data
-            case .failure(let error):
-                //TODO: - handle error
-                Logger.log(.error, error.localizedDescription)
-            }
         }
     }
     
     func bookmark(recepie id: Int) {
-        dataSource.bookmark(recepie: id) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let data):
-                self.data = data
-            case .failure(let error):
-                //TODO: - handle error
-                Logger.log(.error, error.localizedDescription)
-            }
-        }
+        dataSource.bookmark(recepie: id)
+    }
+}
+
+// MARK: - delegate
+extension RecepieListVM: RecepieDataSourceDelegate {
+    func uiDataUpdated(data: [UIRecepieItemModel]) {
+        self.data = data
+    }
+    
+    func handleDataSourceError(error: any Error) {
+        self.error = error
     }
 }

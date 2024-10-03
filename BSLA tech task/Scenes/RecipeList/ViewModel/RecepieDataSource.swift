@@ -8,15 +8,22 @@
 import Foundation
 
 typealias RecepieDataCallback = (Result<[UIRecepieItemModel], Error>) -> Void
+typealias SuccessCallback = (Bool) -> Void
+typealias Action = () -> Void
+
 protocol RecepieDataSourceRepo {
-    func loadAllData(callback: @escaping RecepieDataCallback)
-    func search(with keyword: String, callback: @escaping RecepieDataCallback)
+    func loadAllData(callback: @escaping Action)
+    func search(with keyword: String, callback: @escaping SuccessCallback)
     func filterData(with keyword: String) -> [UIRecepieItemModel]
-    func bookmark(recepie id: Int, callback: @escaping RecepieDataCallback)
+    func bookmark(recepie id: Int)
     
 //    func fetchRecepie
 }
 
+protocol RecepieDataSourceDelegate: AnyObject {
+    func uiDataUpdated(data: [UIRecepieItemModel])
+    func handleDataSourceError(error: Error)
+}
 
 final class RecepieDataSource {
     // MARK: - properties
@@ -25,11 +32,22 @@ final class RecepieDataSource {
     private var uiData: [UIRecepieItemModel] = []
     private let offlineDataSource: OfflineRecepiesDataSourceRepo
     private let reachability = NetworkReachability.shared
+    weak var delegate: RecepieDataSourceDelegate?
     
     // MARK: - init
-    init(client: NetworkClient, offlineDataSource: OfflineRecepiesDataSourceRepo) {
+    init(client: NetworkClient,
+         offlineDataSource: OfflineRecepiesDataSourceRepo) {
         self.client = client
         self.offlineDataSource = offlineDataSource
+        offlineDataSource.setOfflineDataSourceOutput(output: .init(action: { [weak self] action in
+            guard let self = self else { return }
+            switch action {
+            case .bookmarks(bookmark: let item):
+                if let newData = item {
+                    self.uiData.replaceOrAppend(newData, firstMatchingKeyPath: \.id)
+                }
+            }
+        }))
         NotificationCenter.default.addObserver(self, selector: #selector(reachableNotification), name: .networkReachable, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notReachableNotification), name: .networkNotReachable, object: nil)
     }
@@ -41,7 +59,7 @@ final class RecepieDataSource {
 
 // MARK: - repository logics
 extension RecepieDataSource: RecepieDataSourceRepo {
-    func loadAllData(callback: @escaping RecepieDataCallback) {
+    func loadAllData(callback: @escaping Action) {
         if reachability.isReachableOnCellular {
             let setup = NetworkSetup(route: API.Routes.recepieRoutes,
                                      params: RecepieQueryModel(query: ""),
@@ -51,38 +69,49 @@ extension RecepieDataSource: RecepieDataSourceRepo {
                 switch result {
                 case .success(let success):
                     self.offlineDataSource.store(recepies: self.rowData?.data ?? [])
-                    callback(.success(success))
+                    self.delegate?.uiDataUpdated(data: success)
+                    callback()
                 case .failure(let error):
-                    callback(.failure(error))
+                    callback()
+                    self.delegate?.handleDataSourceError(error: error)
                 }
             }
         } else {
             let data = offlineDataSource.fetchData()
             self.uiData = data
-            callback(.success(data))
+            self.delegate?.uiDataUpdated(data: data)
         }
     }
     
-    func filterData(with keyword: String) -> [UIRecepieItemModel] {
+    func filterData(with keyword: String) -> [UIRecepieItemModel]{
         guard let data = rowData else { return []}
         let filterData = data.data.filter({$0.title.lowercased().contains(keyword.lowercased())})
         let uiData = self.convertData(data: filterData)
-        self.uiData = uiData
         return uiData
     }
     
-    func search(with keyword: String, callback: @escaping RecepieDataCallback) {
+    func search(with keyword: String, callback: @escaping SuccessCallback) {
         if reachability.isReachableOnCellular {
             let setup = NetworkSetup(route: API.Routes.recepieRoutes,
                                      params: RecepieQueryModel(query: keyword.lowercased()),
                                      method: .get)
-            sendRequest(with: setup, callback: callback)
+            sendRequest(with: setup) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let success):
+                    self.delegate?.uiDataUpdated(data: success)
+                    callback(true)
+                case .failure(let error):
+                    callback(false)
+                    self.delegate?.handleDataSourceError(error: error)
+                }
+            }
         } else {
-            callback(.success(uiData))
+            self.delegate?.uiDataUpdated(data: uiData)
         }
     }
     
-    func bookmark(recepie id: Int, callback: @escaping RecepieDataCallback) {
+    func bookmark(recepie id: Int) {
         var uiData = offlineDataSource.toggleBookmark(with: id)
         if uiData == nil {
             var previousData = self.uiData.first(where: {$0.id == id})
@@ -91,7 +120,7 @@ extension RecepieDataSource: RecepieDataSourceRepo {
         }
         guard let newData = uiData else { return }
         self.uiData.replaceOrAppend(newData, firstMatchingKeyPath: \.id)
-        callback(.success(self.uiData))
+        self.delegate?.uiDataUpdated(data: self.uiData)
     }
 }
 
@@ -132,11 +161,11 @@ private extension RecepieDataSource {
     
     @objc private func reachableNotification() {
         guard reachability.isReachableOnCellular, rowData == nil else { return }
-        self.loadAllData { _ in }
+        self.loadAllData {}
     }
     
     @objc private func notReachableNotification() {
         guard reachability.isReachableOnCellular, rowData == nil else { return }
-        self.loadAllData { _ in }
+        self.loadAllData {}
     }
 }

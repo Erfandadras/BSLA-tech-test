@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct RecipeDetailView: View {
     @StateObject private var viewModel: RecipeDetailVM
-
+    
     // MARK: - init
     init(id: Int) {
         print(id)
@@ -73,6 +73,9 @@ struct RecipeDetailView: View {
                 }
                 .padding()
             }// ScrollView
+            .refreshable {
+                viewModel.loadData()
+            }
         } else {
             ProgressView()
                 .progressViewStyle(.circular)

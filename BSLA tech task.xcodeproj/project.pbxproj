@@ -47,6 +47,9 @@
 		E49609FC2CAD8B70006183A4 /* ReipeNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49609FB2CAD8B70006183A4 /* ReipeNetworkClient.swift */; };
 		E49609FE2CAD8C1B006183A4 /* RecipeDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49609FD2CAD8C1B006183A4 /* RecipeDetailDataSource.swift */; };
 		E4960A022CAE9561006183A4 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A012CAE9561006183A4 /* NavigationLazyView.swift */; };
+		E4960A072CAE966E006183A4 /* BookmarksRecipeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A062CAE966E006183A4 /* BookmarksRecipeVM.swift */; };
+		E4960A092CAE9845006183A4 /* BookmarksRecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A082CAE9845006183A4 /* BookmarksRecipeDataSource.swift */; };
+		E4960A0B2CAE9BF3006183A4 /* BookmarksRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +96,9 @@
 		E49609FB2CAD8B70006183A4 /* ReipeNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReipeNetworkClient.swift; sourceTree = "<group>"; };
 		E49609FD2CAD8C1B006183A4 /* RecipeDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailDataSource.swift; sourceTree = "<group>"; };
 		E4960A012CAE9561006183A4 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
+		E4960A062CAE966E006183A4 /* BookmarksRecipeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeVM.swift; sourceTree = "<group>"; };
+		E4960A082CAE9845006183A4 /* BookmarksRecipeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeDataSource.swift; sourceTree = "<group>"; };
+		E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeView.swift; sourceTree = "<group>"; };
 		F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.debug.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,8 +218,9 @@
 		E43726E62CAAA26D0098CB7C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E49609E92CAD6D9B006183A4 /* RecepyDetail */,
-				E43726F82CAAAB430098CB7C /* RecepieList */,
+				E4960A032CAE9621006183A4 /* Bookmarks */,
+				E49609E92CAD6D9B006183A4 /* RecipeDetail */,
+				E43726F82CAAAB430098CB7C /* RecipeList */,
 				E43726D32CAAA1BA0098CB7C /* ContentView.swift */,
 			);
 			path = Scenes;
@@ -268,7 +275,7 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		E43726F82CAAAB430098CB7C /* RecepieList */ = {
+		E43726F82CAAAB430098CB7C /* RecipeList */ = {
 			isa = PBXGroup;
 			children = (
 				E43727082CAAF1C90098CB7C /* Services */,
@@ -276,7 +283,7 @@
 				E43726FA2CAAAB540098CB7C /* Model */,
 				E43726F92CAAAB4C0098CB7C /* ViewModel */,
 			);
-			path = RecepieList;
+			path = RecipeList;
 			sourceTree = "<group>";
 		};
 		E43726F92CAAAB4C0098CB7C /* ViewModel */ = {
@@ -328,7 +335,7 @@
 			path = Databse;
 			sourceTree = "<group>";
 		};
-		E49609E92CAD6D9B006183A4 /* RecepyDetail */ = {
+		E49609E92CAD6D9B006183A4 /* RecipeDetail */ = {
 			isa = PBXGroup;
 			children = (
 				E49609FA2CAD8B4E006183A4 /* Services */,
@@ -336,7 +343,7 @@
 				E49609F62CAD8A14006183A4 /* View */,
 				E49609EC2CAD6DD1006183A4 /* Model */,
 			);
-			path = RecepyDetail;
+			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
 		E49609EC2CAD6DD1006183A4 /* Model */ = {
@@ -380,6 +387,32 @@
 				E49609FB2CAD8B70006183A4 /* ReipeNetworkClient.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		E4960A032CAE9621006183A4 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				E4960A052CAE9654006183A4 /* ViewModel */,
+				E4960A042CAE964D006183A4 /* View */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
+		E4960A042CAE964D006183A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4960A052CAE9654006183A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E4960A062CAE966E006183A4 /* BookmarksRecipeVM.swift */,
+				E4960A082CAE9845006183A4 /* BookmarksRecipeDataSource.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4960A0B2CAE9BF3006183A4 /* BookmarksRecipeView.swift in Sources */,
 				E43727172CAC31590098CB7C /* RecepieDB.xcdatamodeld in Sources */,
 				E49609F92CAD8A3A006183A4 /* RecipeDetailVM.swift in Sources */,
 				E43727052CAAF13C0098CB7C /* RecepieDataSource.swift in Sources */,
@@ -508,6 +542,7 @@
 				E43727222CAC39020098CB7C /* RecepieDBCoreDataStack.swift in Sources */,
 				E43727282CAC48E80098CB7C /* OfflineRecepiesDataSource.swift in Sources */,
 				E43726F22CAAA5640098CB7C /* CustomError.swift in Sources */,
+				E4960A072CAE966E006183A4 /* BookmarksRecipeVM.swift in Sources */,
 				E4960A022CAE9561006183A4 /* NavigationLazyView.swift in Sources */,
 				E43726D42CAAA1BA0098CB7C /* ContentView.swift in Sources */,
 				E49609FC2CAD8B70006183A4 /* ReipeNetworkClient.swift in Sources */,
@@ -521,6 +556,7 @@
 				E49609EB2CAD6DC0006183A4 /* RecipeDetailView.swift in Sources */,
 				E437271F2CAC38810098CB7C /* RecepieEntity+CoreDataClass.swift in Sources */,
 				E49609EE2CAD6DE2006183A4 /* RRecepieDetailModel.swift in Sources */,
+				E4960A092CAE9845006183A4 /* BookmarksRecipeDataSource.swift in Sources */,
 				E43727202CAC38810098CB7C /* RecepieEntity+CoreDataProperties.swift in Sources */,
 				E49609FE2CAD8C1B006183A4 /* RecipeDetailDataSource.swift in Sources */,
 				E43726E92CAAA32B0098CB7C /* NetworkService.swift in Sources */,

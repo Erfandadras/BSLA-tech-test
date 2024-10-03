@@ -11,14 +11,17 @@ struct RecepieListView: View {
     // MARK: - properties
     @StateObject var viewModel: RecepieListVM
     @State var search: String = ""
+    private let offlineDataSource: OfflineRecepiesDataSourceRepo
     // MARK: - init
     init() {
         let client = RecepieListNetworkClient()
         let mockClient = MockRecepieListNetworkClient()
-        let offlineDataSource = OfflineRecepiesDataSource()
+        offlineDataSource = OfflineRecepiesDataSource()
         let dataSource = RecepieDataSource(client: mockClient,
                                            offlineDataSource: offlineDataSource)
-        _viewModel = .init(wrappedValue: RecepieListVM(dataSource: dataSource))
+        let viewModel = RecepieListVM(dataSource: dataSource)
+        dataSource.delegate = viewModel
+        _viewModel = .init(wrappedValue: viewModel)
     }
     
     // MARK: - view
@@ -32,6 +35,13 @@ struct RecepieListView: View {
                     } , filterAction: { keyword in
                         viewModel.filterData(with: keyword)
                     })
+                    
+                    NavigationLink {
+                        BookmarksRecipeView(offlineDataSource: offlineDataSource)
+                    } label: {
+                        Text("Bookmark")
+                    }
+
                 }
                 .padding(.horizontal, 24)
                 ScrollView {

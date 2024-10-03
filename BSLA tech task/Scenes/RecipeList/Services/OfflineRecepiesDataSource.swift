@@ -12,12 +12,20 @@ protocol OfflineRecepiesDataSourceRepo {
     func fetchBookmarked() -> [UIRecepieItemModel]
     func toggleBookmark(with id: Int) -> UIRecepieItemModel?
     func store(recepies data: [RRecepieItemModel])
+    func setOfflineDataSourceOutput(output: OfflineRecepiesDataSource.Output)
 }
 
-final class OfflineRecepiesDataSource {}
+final class OfflineRecepiesDataSource {
+    // MARK: - properties
+    private var output: Output?
+}
 
 // MARK: - repo logics
 extension OfflineRecepiesDataSource: OfflineRecepiesDataSourceRepo {
+    func setOfflineDataSourceOutput(output: Output) {
+        self.output = output
+    }
+    
     func fetchData() -> [UIRecepieItemModel] {
         let recepies = RecepieDBManager.fetchRecepies()
         return convert(data: recepies)
@@ -30,7 +38,9 @@ extension OfflineRecepiesDataSource: OfflineRecepiesDataSourceRepo {
     
     func toggleBookmark(with id: Int) -> UIRecepieItemModel? {
         guard let recepie = RecepieDBManager.bookmark(id: id) else {return nil}
-        return .init(data: recepie)
+        let item = UIRecepieItemModel(data: recepie)
+        output?.action(.bookmarks(bookmark: item))
+        return item
     }
     
     func store(recepies data: [RRecepieItemModel]) {
@@ -41,5 +51,16 @@ extension OfflineRecepiesDataSource: OfflineRecepiesDataSourceRepo {
 private extension OfflineRecepiesDataSource {
     func convert(data: [RecepieEntity]) -> [UIRecepieItemModel] {
         return data.map({UIRecepieItemModel(data: $0)})
+    }
+}
+
+
+extension OfflineRecepiesDataSource {
+    struct Output {
+        let action: (Action) -> Void
+    }
+    
+    enum Action {
+        case bookmarks(bookmark: UIRecepieItemModel?)
     }
 }
