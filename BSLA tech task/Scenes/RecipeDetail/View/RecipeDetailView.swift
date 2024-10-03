@@ -13,9 +13,12 @@ struct RecipeDetailView: View {
     
     // MARK: - init
     init(id: Int) {
-        print(id)
-        let client = ReipeNetworkClient()
-        let mockClient = MockReipeNetworkClient()
+        var client: NetworkClient
+#if DEBUG
+        client = MockReipeNetworkClient()
+#else
+        client = ReipeNetworkClient()
+#endif
         let dataSource = RecipeDetailDataSource(id: id, client: client)
         _viewModel = .init(wrappedValue: RecipeDetailVM(dataSource: dataSource))
     }

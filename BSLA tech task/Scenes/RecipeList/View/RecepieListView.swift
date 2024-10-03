@@ -14,10 +14,14 @@ struct RecepieListView: View {
     private let offlineDataSource: OfflineRecepiesDataSourceRepo
     // MARK: - init
     init() {
-        let client = RecepieListNetworkClient()
-        let mockClient = MockRecepieListNetworkClient()
+        var client: NetworkClient
+#if DEBUG
+        client = MockRecepieListNetworkClient()
+#else
+        client = RecepieListNetworkClient() // user for
+#endif
         offlineDataSource = OfflineRecepiesDataSource()
-        let dataSource = RecepieDataSource(client: mockClient,
+        let dataSource = RecepieDataSource(client: client,
                                            offlineDataSource: offlineDataSource)
         let viewModel = RecepieListVM(dataSource: dataSource)
         dataSource.delegate = viewModel
