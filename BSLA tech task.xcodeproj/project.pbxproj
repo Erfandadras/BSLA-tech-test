@@ -51,6 +51,7 @@
 		E4960A092CAE9845006183A4 /* BookmarksRecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A082CAE9845006183A4 /* BookmarksRecipeDataSource.swift */; };
 		E4960A0B2CAE9BF3006183A4 /* BookmarksRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */; };
 		E4960A162CAEBDA5006183A4 /* BSLA_tech_taskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A152CAEBDA5006183A4 /* BSLA_tech_taskTests.swift */; };
+		E4960A202CB00205006183A4 /* View + EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4960A1F2CB00205006183A4 /* View + EndEditing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		E4960A0A2CAE9BF3006183A4 /* BookmarksRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksRecipeView.swift; sourceTree = "<group>"; };
 		E4960A132CAEBDA5006183A4 /* BSLA tech taskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BSLA tech taskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4960A152CAEBDA5006183A4 /* BSLA_tech_taskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSLA_tech_taskTests.swift; sourceTree = "<group>"; };
+		E4960A1F2CB00205006183A4 /* View + EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EndEditing.swift"; sourceTree = "<group>"; };
 		F2A8809747ED03115A1456D7 /* Pods-BSLA tech task.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BSLA tech task.debug.xcconfig"; path = "Target Support Files/Pods-BSLA tech task/Pods-BSLA tech task.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +265,7 @@
 				E49609F32CAD7775006183A4 /* Component */,
 				E43726ED2CAAA4E00098CB7C /* Encodable+dictionary.swift */,
 				E43727292CAC5B6C0098CB7C /* Array+replace.swift */,
+				E4960A1F2CB00205006183A4 /* View + EndEditing.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -440,17 +443,9 @@
 		E4960A142CAEBDA5006183A4 /* BSLA tech taskTests */ = {
 			isa = PBXGroup;
 			children = (
-				E4960A1C2CAEBDD5006183A4 /* MockData */,
 				E4960A152CAEBDA5006183A4 /* BSLA_tech_taskTests.swift */,
 			);
 			path = "BSLA tech taskTests";
-			sourceTree = "<group>";
-		};
-		E4960A1C2CAEBDD5006183A4 /* MockData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MockData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -601,6 +596,7 @@
 			files = (
 				E4960A0B2CAE9BF3006183A4 /* BookmarksRecipeView.swift in Sources */,
 				E43727172CAC31590098CB7C /* RecepieDB.xcdatamodeld in Sources */,
+				E4960A202CB00205006183A4 /* View + EndEditing.swift in Sources */,
 				E49609F92CAD8A3A006183A4 /* RecipeDetailVM.swift in Sources */,
 				E43727052CAAF13C0098CB7C /* RecepieDataSource.swift in Sources */,
 				E43727032CAAF0DB0098CB7C /* RecepieListVM.swift in Sources */,

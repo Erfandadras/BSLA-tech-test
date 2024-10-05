@@ -28,6 +28,7 @@ final class RecepieListNetworkClient: NetworkClient, DataParser {
                     callback(.failure(NetworkClientError.typeError))
                 }
             case .failure(let failure):
+                Logger.log(.error, failure.localizedDescription)
                 callback(.failure(failure))
             }
         }

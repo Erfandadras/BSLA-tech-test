@@ -23,6 +23,8 @@ final class RecepieListVM: ObservableObject {
     init(dataSource: RecepieDataSourceRepo) {
         self.dataSource = dataSource
         self._error = .init(initialValue: nil)
+        
+        self.getData()
     }
 }
 
@@ -42,11 +44,7 @@ extension RecepieListVM {
     
     func filterData(with keyword: String) {
         let data = dataSource.filterData(with: keyword)
-        if data.isEmpty {
-            search(with: keyword)
-        } else {
-            self.data = data
-        }
+        self.data = data
     }
     
     func search(with keyword: String) {

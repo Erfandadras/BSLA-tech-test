@@ -12,6 +12,7 @@ struct RecepieListView: View {
     @StateObject var viewModel: RecepieListVM
     @State var search: String = ""
     private let offlineDataSource: OfflineRecepiesDataSourceRepo
+    
     // MARK: - init
     init() {
         var client: NetworkClient
@@ -34,7 +35,7 @@ struct RecepieListView: View {
             VStack {
                 Spacer()
                 HStack{
-                    SwiftUICustomSearchBar(searchText: $search, searching: $viewModel.searching,searchAction: { keyword in
+                    SwiftUICustomSearchBar(searchText: $search, searching: $viewModel.searching, searchAction: { keyword in
                         viewModel.search(with: keyword)
                     } , filterAction: { keyword in
                         viewModel.filterData(with: keyword)
@@ -46,14 +47,13 @@ struct RecepieListView: View {
                         Text("Bookmark")
                     }
 
-                }
+                }// Hstack -> Search bae
                 .padding(.horizontal, 24)
                 ScrollView {
                     LazyVStack {
                         ForEach(viewModel.data) { item in
                             NavigationLink {
                                 NavigationLazyView(RecipeDetailView(id: item.id))
-                                    
                             } label: {
                                 RecepieItemView(data: item) { id in
                                     withAnimation {
@@ -69,10 +69,7 @@ struct RecepieListView: View {
                     viewModel.refresh()
                 }
             }// Vstack
-            .onAppear {
-                self.viewModel.getData()
-            }
-        }
+        }// navigation view
     }
 }
 
@@ -104,9 +101,8 @@ struct SwiftUICustomSearchBar: View {
                     .progressViewStyle(.circular)
             } else {
                 Button {
-                    if !searchText.isEmpty {
-                        searchAction(searchText)
-                    }
+                    searchAction(searchText)
+                    endEditing()
                 } label: {
                     Image(systemName: "magnifyingglass")
                 }.tint(.gray)

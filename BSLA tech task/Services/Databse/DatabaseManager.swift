@@ -17,6 +17,7 @@ final class RecepieDBManager {
 extension RecepieDBManager {
     static func storeRecepies(data recepies: [RRecepieItemModel]) {
         for recipe in recepies {
+            guard fetchItem(with: recipe.id) == nil else { continue }
             let item = RecepieEntity(context: context)
             item.id = Int32(recipe.id)
             item.title = recipe.title

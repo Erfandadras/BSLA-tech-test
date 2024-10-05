@@ -114,6 +114,10 @@ final class BSLA_tech_taskTests: XCTestCase {
 
 
 class MockOfflineRecepiesDataSource: OfflineRecepiesDataSourceRepo {
+    func fetchRowData() -> [BSLA_tech_task.RRecepieItemModel] {
+        return []
+    }
+    
     var mockStoredData: [UIRecepieItemModel] = []
 
     func fetchBookmarked() -> [UIRecepieItemModel] {
@@ -156,10 +160,12 @@ class MockRecepieDataSourceDelegate: RecepieDataSourceDelegate {
 }
 
 class MockNetworkReachability: NetworkReachabilityRepo {
+    var isReachable: Bool = true
     var isReachableOnCellular: Bool = true
     
     func changeRechability(reachable: Bool) {
         isReachableOnCellular = reachable
+        isReachable = reachable
     }
 }
 

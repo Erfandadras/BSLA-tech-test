@@ -16,8 +16,6 @@ protocol RecepieDataSourceRepo {
     func search(with keyword: String, callback: @escaping SuccessCallback)
     func filterData(with keyword: String) -> [UIRecepieItemModel]
     func bookmark(recepie id: Int)
-    
-//    func fetchRecepie
 }
 
 protocol RecepieDataSourceDelegate: AnyObject {
@@ -48,6 +46,7 @@ final class RecepieDataSource {
             case .bookmarks(bookmark: let item):
                 if let newData = item {
                     self.uiData.replaceOrAppend(newData, firstMatchingKeyPath: \.id)
+                    self.delegate?.uiDataUpdated(data: self.uiData)
                 }
             }
         }))
@@ -63,7 +62,8 @@ final class RecepieDataSource {
 // MARK: - repository logics
 extension RecepieDataSource: RecepieDataSourceRepo {
     func loadAllData(callback: @escaping Action) {
-        if reachability.isReachableOnCellular {
+        print("load data in reachablility", reachability.isReachableOnCellular, reachability.isReachable)
+        if reachability.isReachable {
             let setup = NetworkSetup(route: API.Routes.recepieRoutes,
                                      params: RecepieQueryModel(query: ""),
                                      method: .get)
@@ -71,7 +71,6 @@ extension RecepieDataSource: RecepieDataSourceRepo {
                 guard let self = self else { return }
                 switch result {
                 case .success(let success):
-                    self.offlineDataSource.store(recepies: self.rowData?.data ?? [])
                     self.delegate?.uiDataUpdated(data: success)
                     callback()
                 case .failure(let error):
@@ -80,6 +79,7 @@ extension RecepieDataSource: RecepieDataSourceRepo {
                 }
             }
         } else {
+            self.rowData = .init(data: offlineDataSource.fetchRowData())
             let data = offlineDataSource.fetchData()
             self.uiData = data
             self.delegate?.uiDataUpdated(data: data)
@@ -88,6 +88,7 @@ extension RecepieDataSource: RecepieDataSourceRepo {
     }
     
     func filterData(with keyword: String) -> [UIRecepieItemModel]{
+        guard !keyword.isEmpty else {return self.uiData}
         guard let data = rowData else { return []}
         let filterData = data.data.filter({$0.title.lowercased().contains(keyword.lowercased())})
         let uiData = self.convertData(data: filterData)
@@ -95,7 +96,12 @@ extension RecepieDataSource: RecepieDataSourceRepo {
     }
     
     func search(with keyword: String, callback: @escaping SuccessCallback) {
-        if reachability.isReachableOnCellular {
+        if reachability.isReachable {
+            guard !keyword.isEmpty else {
+                self.loadAllData {
+                    callback(true)
+                }
+                return}
             let setup = NetworkSetup(route: API.Routes.recepieRoutes,
                                      params: RecepieQueryModel(query: keyword.lowercased()),
                                      method: .get)
@@ -103,6 +109,7 @@ extension RecepieDataSource: RecepieDataSourceRepo {
                 guard let self = self else { return }
                 switch result {
                 case .success(let success):
+                    self.uiData = success
                     self.delegate?.uiDataUpdated(data: success)
                     callback(true)
                 case .failure(let error):
@@ -118,13 +125,13 @@ extension RecepieDataSource: RecepieDataSourceRepo {
     }
     
     func bookmark(recepie id: Int) {
-        var uiData = offlineDataSource.toggleBookmark(with: id)
-        if uiData == nil {
+        var item = offlineDataSource.toggleBookmark(with: id)
+        if item == nil {
             var previousData = self.uiData.first(where: {$0.id == id})
             previousData?.toggleBookmark()
-            uiData = previousData
+            item = previousData
         }
-        guard let newData = uiData else { return }
+        guard let newData = item else { return }
         self.uiData.replaceOrAppend(newData, firstMatchingKeyPath: \.id)
         self.delegate?.uiDataUpdated(data: self.uiData)
     }
@@ -158,6 +165,7 @@ private extension RecepieDataSource {
                 self.rowData = success
                 let uiData = self.convertData(data: success)
                 self.uiData = uiData
+                self.offlineDataSource.store(recepies: success.data)
                 callback(.success(uiData))
             case .failure(let failure):
                 callback(.failure(failure))
@@ -166,12 +174,12 @@ private extension RecepieDataSource {
     }
     
     @objc private func reachableNotification() {
-        guard reachability.isReachableOnCellular, rowData == nil else { return }
+        guard rowData == nil else { return }
         self.loadAllData {}
     }
     
     @objc private func notReachableNotification() {
-        guard reachability.isReachableOnCellular, rowData == nil else { return }
+        guard rowData == nil else { return }
         self.loadAllData {}
     }
 }

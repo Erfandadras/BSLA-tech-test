@@ -10,6 +10,7 @@ import Network
 
 protocol NetworkReachabilityRepo {
     var isReachableOnCellular: Bool {get}
+    var isReachable: Bool {get}
     
     func changeRechability(reachable: Bool)
 }
@@ -61,7 +62,6 @@ class NetworkReachability: NetworkReachabilityRepo {
     }
     
     private func notifyNetworkStatus() {
-        print("reachability", isReachable, isReachableOnCellular)
         if isReachable {
             NotificationCenter.default.post(name: .networkReachable, object: nil)
         } else {

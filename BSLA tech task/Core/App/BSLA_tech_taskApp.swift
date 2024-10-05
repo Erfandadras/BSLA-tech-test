@@ -14,6 +14,7 @@ struct BSLA_tech_taskApp: App {
     var body: some Scene {
         WindowGroup {
             RecepieListView()
+                .preferredColorScheme(.light)
         }
     }
 }
